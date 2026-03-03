@@ -44,6 +44,13 @@ export default function App() {
   // Map ref for export
   const mapRef = useRef(null);
 
+  const fillTestData = () => {
+    const testLocation = { lat: 45.5152, lng: -122.6784, name: '742 SW Morrison St, Portland, OR 97205, United States' };
+    setCenter(testLocation);
+    setRadius(20);
+    setDrawingMode(DRAWING_MODES.RADIUS);
+  };
+
   const handleLocationSelect = useCallback((location) => {
     setCenter(location);
   }, []);
@@ -210,6 +217,19 @@ export default function App() {
             <p className="text-cloudy text-base sm:text-lg">
               Draw your service area on an interactive map, then export it as embeddable HTML, a downloadable image, or a city list for Google Business Profile.
             </p>
+          </div>
+        </div>
+
+        {/* Fill Test Data */}
+        <div className="px-4 max-w-[1600px] mx-auto">
+          <div className="flex justify-end mb-4">
+            <button
+              type="button"
+              onClick={fillTestData}
+              className="px-3 py-1.5 text-xs font-mono bg-prince/20 text-prince border border-prince/30 rounded hover:bg-prince/30 transition-colors focus:outline-none focus:ring-2 focus:ring-prince focus:ring-offset-2 focus:ring-offset-abyss"
+            >
+              Fill Test Data
+            </button>
           </div>
         </div>
 
